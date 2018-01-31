@@ -1,7 +1,7 @@
 <template lang="pug">
 .hello
   h1 {{ msg }}
-  h2 Essential Links
+  h2 Essential Links Agoooooo
   ul
     li
       a(href='https://vuejs.org', target='_blank') Core Docs
