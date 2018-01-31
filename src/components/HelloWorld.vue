@@ -37,8 +37,11 @@ export default {
 }
 </script>
 
-<style lang="scss">
-$msg-color: #42b983;
+<style>
+/**----- postcss-custom-properties(変数) -----**/
+:root {
+  --modify-color: red
+}
 
 h1, h2 {
   font-weight: normal;
@@ -55,6 +58,6 @@ li {
 }
 
 a {
-  color: $msg-color;
+  color: var(--modify-color);
 }
 </style>
