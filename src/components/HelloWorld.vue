@@ -1,6 +1,7 @@
 <template lang="pug">
 .hello
   h1 {{ msg }}
+  h1 {{ msg2 }}
   h2 Essential Links Agoooooo
   ul
     li
@@ -24,6 +25,7 @@
       a(href='http://vue-loader.vuejs.org/', target='_blank') vue-loader
     li
       a(href='https://github.com/vuejs/awesome-vue', target='_blank') awesome-vue
+  .test_field agoooon
 </template>
 
 <script>
@@ -31,18 +33,15 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      msg2: 'Agooooooooooooooooon'
     }
   }
 }
 </script>
 
+<style src="./css/style.css"></style>
 <style>
-/**----- postcss-custom-properties(変数) -----**/
-:root {
-  --modify-color: red
-}
-
 h1, h2 {
   font-weight: normal;
 }
@@ -59,5 +58,11 @@ li {
 
 a {
   color: var(--modify-color);
+}
+
+.hello {
+  .test_field {
+    color: blue;
+  }
 }
 </style>

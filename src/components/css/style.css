@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+/**----- postcss-custom-properties(変数) -----**/
+:root {
+  --modify-color: red;
+}

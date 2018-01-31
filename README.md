@@ -2,7 +2,8 @@
 **postcss,Pug**
 
 > *postcssまとめ* https://qiita.com/morishitter/items/4a04eb144abf49f41d7d  
-*vue.jsでpugとpostcssつかう* https://qiita.com/shuuhei/items/4852210d362d2e9022d7
+*vue.jsでpugとpostcssつかう* https://qiita.com/shuuhei/items/4852210d362d2e9022d7  
+*postcssプラグイン* https://qiita.com/yuyake0084/items/301b716214e0352360c5
 
 ---
 
