@@ -9,6 +9,8 @@
         a.link 2th
       router-link.list__item(tag="li" id="nav_3th" to="/Test03" )
         a.link 3th
+      router-link.list__item(tag="li" id="nav_chat" to="/Chat" )
+        a.link Chat
 </template>
 
 <script>

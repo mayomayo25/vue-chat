@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Test01 from '@/components/Test01'
 import Test02 from '@/components/Test02'
 import Test03 from '@/components/Test03'
+import Chat from '@/components/ChatMainPage'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/Test03',
       name: 'Test03',
       component: Test03
+    },
+    {
+      path: '/Chat',
+      name: 'Chat',
+      component: Chat
     }
   ]
 })
