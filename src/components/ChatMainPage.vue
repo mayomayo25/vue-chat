@@ -1,10 +1,7 @@
-<template lang="pug">
-p chat
+<template>
 </template>
 
 <script>
-export default {
-}
 </script>
 
 <style lang="stylus">
