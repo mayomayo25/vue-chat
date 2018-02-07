@@ -2,11 +2,13 @@
   <div id="app">
     <globalHeader></globalHeader>
     <router-view></router-view>
+    <globalFooter></globalFooter>
   </div>
 </template>
 
 <script>
 import globalHeader from './components/GlobalHeader'
+import globalFooter from './components/GlobalFooter'
 import firebase from 'firebase'
 
 var config = {
@@ -23,7 +25,8 @@ firebase.initializeApp(config)
 export default {
   name: 'App',
   components: {
-    globalHeader
+    globalHeader,
+    globalFooter
   }
 }
 </script>
