@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import ChatUserCreateMain from '@/components/ChatUserCreateMain'
+import ChatUserCreatePage from '@/components/ChatUserCreatePage'
 import SiteTopPage from '@/components/SiteTopPage'
-import LoginMenu from '@/components/LoginMenu'
+import LoginMenuPage from '@/components/LoginMenuPage'
 
 Vue.use(Router)
 
@@ -14,14 +14,14 @@ export default new Router({
       component: SiteTopPage
     },
     {
-      path: '/ChatUserCreateMain',
-      name: 'ChatUserCreateMain',
-      component: ChatUserCreateMain
+      path: '/ChatUserCreatePage',
+      name: 'ChatUserCreatePage',
+      component: ChatUserCreatePage
     },
     {
       path: '/login',
-      name: 'LoginMenu',
-      component: LoginMenu
+      name: 'LoginMenuPage',
+      component: LoginMenuPage
     }
   ]
 })

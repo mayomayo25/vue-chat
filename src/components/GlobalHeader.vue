@@ -1,6 +1,6 @@
 <template lang="pug">
   header.global_header.shadow-deep#global-header
-    router-link.site-title(tag="h1" id="nav_home" to="/")
+    router-link.site-title(tag="h1" id="nav_home" to="/" v-on:click.native="isActive=!isActive")
       a.site-title--link Vuechat
     nav.nav
       ul.nav-list(v-bind:class='{active:isActive}')

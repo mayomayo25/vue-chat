@@ -8,6 +8,4 @@ export default {
 </script>
 
 <style lang="stylus">
-body
-  background-color #E0F2F1
 </style>

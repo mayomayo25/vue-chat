@@ -32,6 +32,9 @@ export default {
 </script>
 
 <style lang="stylus">
+body
+  background-color #E0F2F1
+
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
