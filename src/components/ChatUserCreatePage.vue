@@ -1,7 +1,7 @@
 <template>
 <div>
-  <RegisteredUserList></RegisteredUserList>
-  <ChatUserCreate></ChatUserCreate>
+  <registered-user-list></registered-user-list>
+  <chat-user-create></chat-user-create>
 </div>
 </template>
 
@@ -27,8 +27,8 @@ export default {
     users: usersRef
   },
   components: {
-    ChatUserCreate,
-    RegisteredUserList
+    'ChatUserCreate': ChatUserCreate,
+    'RegisteredUserList': RegisteredUserList
   }
 }
 </script>

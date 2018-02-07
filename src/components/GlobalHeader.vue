@@ -6,13 +6,13 @@
       ul.nav-list(v-bind:class='{active:isActive}')
         router-link.nav-list-item.ripple(tag="li" id="nav_login" to="/login" v-on:click.native="rippleEffect,isActive=!isActive")
           a.nav-list-item--link Login
-        router-link.nav-list-item.ripple(tag="li" id="nav_1th" to="/ChatUserCreateMain" v-on:click.native="rippleEffect,isActive=!isActive")
+        router-link.nav-list-item.ripple(tag="li" id="nav_1th" to="/ChatUserCreatePage" v-on:click.native="rippleEffect,isActive=!isActive")
           a.nav-list-item--link Chat
-        router-link.nav-list-item.ripple(tag="li" id="nav_2th" to="/ChatUserCreateMain" v-on:click.native="rippleEffect,isActive=!isActive")
+        router-link.nav-list-item.ripple(tag="li" id="nav_2th" to="/ChatUserCreatePage" v-on:click.native="rippleEffect,isActive=!isActive")
           a.nav-list-item--link Chat
-        router-link.nav-list-item.ripple(tag="li" id="nav_3th" to="/ChatUserCreateMain" v-on:click.native="rippleEffect,isActive=!isActive")
+        router-link.nav-list-item.ripple(tag="li" id="nav_3th" to="/ChatUserCreatePage" v-on:click.native="rippleEffect,isActive=!isActive")
           a.nav-list-item--link Chat
-        router-link.nav-list-item.ripple(tag="li" id="nav_chat" to="/ChatUserCreateMain" v-on:click.native="rippleEffect,isActive=!isActive")
+        router-link.nav-list-item.ripple(tag="li" id="nav_chat" to="/ChatUserCreatePage" v-on:click.native="rippleEffect,isActive=!isActive")
           a.nav-list-item--link Chat
     .menu-button.shadow-deep(v-bind:class='{active:isActive}' v-on:click='isActive=!isActive')
       i.material-icons menu
