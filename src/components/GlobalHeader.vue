@@ -2,14 +2,14 @@
   header.global_header
     ul.list
       router-link.list__item(tag="li" id="nav_home" to="/" exact)
-        a.link home
-      router-link.list__item(tag="li" id="nav_1th" to="/Test01" )
-        a.link 1th
-      router-link.list__item(tag="li" id="nav_2th" to="/Test02" )
-        a.link 2th
-      router-link.list__item(tag="li" id="nav_3th" to="/Test03" )
-        a.link 3th
-      router-link.list__item(tag="li" id="nav_chat" to="/ChatMainPage" )
+        a.link Chat
+      router-link.list__item(tag="li" id="nav_1th" to="/" exact)
+        a.link Chat
+      router-link.list__item(tag="li" id="nav_2th" to="/" exact)
+        a.link Chat
+      router-link.list__item(tag="li" id="nav_3th" to="/" exact)
+        a.link Chat
+      router-link.list__item(tag="li" id="nav_chat" to="/" exact)
         a.link Chat
 </template>
 
