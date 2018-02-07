@@ -39,7 +39,7 @@ export default {
 .shadow-normal
   box-shadow 0 2px 5px rgba(0,0,0,0.26)
 .shadow-deep
-  box-shadow 0 2px 10px rgba(0,0,0,.2)
+  box-shadow 0 2px 10px rgba(0,0,0,.4)
 
 .ripple
   position relative

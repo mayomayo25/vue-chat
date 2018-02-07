@@ -3,23 +3,30 @@
     router-link.site-title(tag="h1" id="nav_home" to="/")
       a.site-title--link Vuechat
     nav.nav
-      ul.nav-list
-        router-link.nav-list-item.ripple(tag="li" id="nav_login" to="/login" v-on:click.native="rippleEffect")
+      ul.nav-list(v-bind:class='{active:isActive}')
+        router-link.nav-list-item.ripple(tag="li" id="nav_login" to="/login" v-on:click.native="rippleEffect,isActive=!isActive")
           a.nav-list-item--link Login
-        router-link.nav-list-item.ripple(tag="li" id="nav_1th" to="/ChatUserCreateMain" v-on:click.native="rippleEffect")
+        router-link.nav-list-item.ripple(tag="li" id="nav_1th" to="/ChatUserCreateMain" v-on:click.native="rippleEffect,isActive=!isActive")
           a.nav-list-item--link Chat
-        router-link.nav-list-item.ripple(tag="li" id="nav_2th" to="/ChatUserCreateMain" v-on:click.native="rippleEffect")
+        router-link.nav-list-item.ripple(tag="li" id="nav_2th" to="/ChatUserCreateMain" v-on:click.native="rippleEffect,isActive=!isActive")
           a.nav-list-item--link Chat
-        router-link.nav-list-item.ripple(tag="li" id="nav_3th" to="/ChatUserCreateMain" v-on:click.native="rippleEffect")
+        router-link.nav-list-item.ripple(tag="li" id="nav_3th" to="/ChatUserCreateMain" v-on:click.native="rippleEffect,isActive=!isActive")
           a.nav-list-item--link Chat
-        router-link.nav-list-item.ripple(tag="li" id="nav_chat" to="/ChatUserCreateMain" v-on:click.native="rippleEffect")
+        router-link.nav-list-item.ripple(tag="li" id="nav_chat" to="/ChatUserCreateMain" v-on:click.native="rippleEffect,isActive=!isActive")
           a.nav-list-item--link Chat
+    .menu-button.shadow-deep(v-bind:class='{active:isActive}' v-on:click='isActive=!isActive')
+      i.material-icons menu
 </template>
 
 <script>
 
 export default {
   name: 'globalHeader',
+  data: function () {
+    return {
+      isActive: false
+    }
+  },
   methods: {
     rippleEffect: function () {
       var ripple, ripples, RippleEffect, loc, cover, coversize, pos, x, y, i, num
@@ -63,6 +70,8 @@ export default {
   height 80px
   line-height 80px
   background-color #009688
+  @media(max-width 960px)
+    position relative
   &::after
     content ''
     clear both
@@ -77,14 +86,56 @@ export default {
       color #f5f5f5
       text-decoration none
   .nav
-    float left
+    float right
     width calc(100% - 250px)
-    &-list-item
+    height 100%
+    @media(max-width 960px)
+      position absolute
+      top 80px
+      right 0
+      width 400px
+    &-list
+      display flex
+      width 100%
+      max-width 800px
+      margin-left auto
+      margin-right 0
+      @media(max-width 960px)
+        display none
+        &.active
+          display block
+          box-shadow 0 2px 10px rgba(0,0,0,.4)
+      &-item
+        width 20%
+        @media(max-width 960px)
+          width 100%
+        &--link
+          display block
+          border-bottom 1px solid #004D40
+          box-sizing border-box
+          color #f5f5f5
+          text-decoration none
+          background-color #009688
+          @media(max-width 960px)
+            color #004D40
+            background-color #B2DFDB
+  .menu-button
+    display none
+    @media(max-width 960px)
       display inline-block
-      width 20%
-      &--link
-        display block
-        color #f5f5f5
-        text-decoration none
-        background-color #009688
+      position absolute
+      top 10px
+      right 10px
+      width 60px
+      height 60px
+      line-height 85px // メニューアイコン位置調整
+      border-radius 50%
+      background-color #E0F2F1
+      cursor pointer
+      transition all linear .2s
+      &.active
+        background-color #80CBC4
+    .material-icons
+      @media(max-width 960px)
+        font-size 36px
 </style>
