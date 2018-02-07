@@ -68,6 +68,7 @@ export default {
 .global_header
   width 100%
   height 80px
+  margin-top -80px
   line-height 80px
   background-color #009688
   @media(max-width 960px)

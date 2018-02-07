@@ -36,6 +36,8 @@ body
   background-color #E0F2F1
 
 #app
+  height calc(100vh - 80px - 60px) // ブラウザの高さからheader,footerを除外
+  padding-top 80px // header分
   font-family 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
