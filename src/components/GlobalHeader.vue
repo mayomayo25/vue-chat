@@ -111,12 +111,12 @@ export default {
           width 100%
         &--link
           display block
-          border-bottom 1px solid #004D40
-          box-sizing border-box
           color #f5f5f5
           text-decoration none
           background-color #009688
           @media(max-width 960px)
+            border-bottom 1px solid #004D40
+            box-sizing border-box
             color #004D40
             background-color #B2DFDB
   .menu-button

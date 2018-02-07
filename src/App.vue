@@ -40,9 +40,9 @@ export default {
   color #2c3e50
 
 .shadow-normal
-  box-shadow 0 2px 5px rgba(0,0,0,0.26)
+  box-shadow 0 2px 5px rgba(0,0,0,0.3)
 .shadow-deep
-  box-shadow 0 2px 10px rgba(0,0,0,.4)
+  box-shadow 0 2px 10px rgba(0,0,0,.5)
 
 .ripple
   position relative
