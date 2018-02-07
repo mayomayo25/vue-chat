@@ -35,4 +35,35 @@ export default {
   -moz-osx-font-smoothing grayscale
   text-align center
   color #2c3e50
+
+.shadow-normal
+  box-shadow 0 2px 5px rgba(0,0,0,0.26)
+.shadow-deep
+  box-shadow 0 2px 10px rgba(0,0,0,.2)
+
+.ripple
+  position relative
+  overflow hidden
+.ripple .rp-effect
+  position absolute
+  border-radius 50%
+  opacity 0.1/*波紋の濃さ*/
+  transform scale(0)
+  background #FFF/*波紋色*/
+  animation ripple 700ms
+  pointer-events none
+
+@-webkit-keyframes ripple {
+  to {
+    opacity 0
+    transform scale(2.0)
+  }
+}
+
+@keyframes ripple {
+  to {
+    opacity 0
+    transform scale(2.0)
+  }
+}
 </style>
