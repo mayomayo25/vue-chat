@@ -1,15 +1,15 @@
 <template lang="pug">
   header.global_header
     ul.list
-      router-link.list__item(tag="li" id="nav_home" to="/" exact)
+      router-link.list-item(tag="li" id="nav_login" to="/login")
+        a.link Login
+      router-link.list-item(tag="li" id="nav_1th" to="/ChatUserCreateMain")
         a.link Chat
-      router-link.list__item(tag="li" id="nav_1th" to="/" exact)
+      router-link.list-item(tag="li" id="nav_2th" to="/ChatUserCreateMain")
         a.link Chat
-      router-link.list__item(tag="li" id="nav_2th" to="/" exact)
+      router-link.list-item(tag="li" id="nav_3th" to="/ChatUserCreateMain")
         a.link Chat
-      router-link.list__item(tag="li" id="nav_3th" to="/" exact)
-        a.link Chat
-      router-link.list__item(tag="li" id="nav_chat" to="/" exact)
+      router-link.list-item(tag="li" id="nav_chat" to="/ChatUserCreateMain")
         a.link Chat
 </template>
 
