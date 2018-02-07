@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="top">
   <site-top-signboard></site-top-signboard>
 </div>
 </template>
@@ -15,5 +15,9 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
+.top
+  position relative
+  width 100%
+  height 100%
 </style>
