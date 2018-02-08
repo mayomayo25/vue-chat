@@ -1,14 +1,14 @@
 <template>
 <div>
-  <form id="form" v-on:submit.prevent="addUser">
-    <input type="text" v-model="newUser.name" placeholder="Username">
-    <input type="email" v-model="newUser.email" placeholder="email@email.com">
-    <input type="submit" value="Add User">
+  <form id="form" v-on:submit="addUser">
+    <input type="email" v-model="newUser.email" placeholder="email">
+    <input type="password" v-model="newUser.password" placeholder="password">
+    <button type="button" v-on:click="addUser">Confirm</button>
   </form>
-  <ul class="errors">
+  <!-- <ul class="errors">
     <li v-show="!validation.name">Name cannot be empty.</li>
     <li v-show="!validation.email">Please provide a valid email address.</li>
-  </ul>
+  </ul> -->
 </div>
 </template>
 
@@ -16,41 +16,42 @@
 import firebase from 'firebase'
 
 // users以下を全て取得
-var usersRef = firebase.database().ref('users')
-
-var emailRE = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ // eslint-disable-line
+// var usersRef = firebase.database().ref('users')
 
 export default {
   name: 'ChatUserCreate',
   data: function () {
     return {
       newUser: {
-        name: '',
-        email: ''
+        email: '',
+        password: ''
       }
     }
   },
-  computed: {
-    validation: function () {
-      return {
-        name: !!this.newUser.name.trim(),
-        email: emailRE.test(this.newUser.email)
-      }
-    },
-    isValid: function () {
-      var validation = this.validation
-      return Object.keys(validation).every(function (key) {
-        return validation[key]
-      })
-    }
-  },
+  // computed: {
+  //   validation: function () {
+  //     return {
+  //       name: !!this.newUser.name.trim(),
+  //       email: emailRE.test(this.newUser.email)
+  //     }
+  //   },
+  //   isValid: function () {
+  //     var validation = this.validation
+  //     return Object.keys(validation).every(function (key) {
+  //       return validation[key]
+  //     })
+  //   }
+  // },
   methods: {
     addUser: function () {
-      if (this.isValid) {
-        usersRef.push(this.newUser)
-        this.newUser.name = ''
-        this.newUser.email = ''
-      }
+      firebase.auth().createUserWithEmailAndPassword(this.newUser.email, this.newUser.password).then(
+        user => {
+          alert('Create account: ', user.email)
+        },
+        err => {
+          alert(err.message)
+        }
+      )
     }
   }
 }
