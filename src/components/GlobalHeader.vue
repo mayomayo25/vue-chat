@@ -8,9 +8,9 @@
           router-link.nav-list-item.ripple(tag="li" id="nav_login" to="/login" v-on:click.native="rippleEffect,isActive=!isActive")
             a.nav-list-item--link Login
           router-link.nav-list-item.ripple(tag="li" id="nav_1th" to="/ChatUserCreatePage" v-on:click.native="rippleEffect,isActive=!isActive")
-            a.nav-list-item--link Chat
-          router-link.nav-list-item.ripple(tag="li" id="nav_2th" to="/ChatUserCreatePage" v-on:click.native="rippleEffect,isActive=!isActive")
-            a.nav-list-item--link Chat
+            a.nav-list-item--link UserCreate
+          router-link.nav-list-item.ripple(tag="li" id="nav_2th" to="/chatroom_list" v-on:click.native="rippleEffect,isActive=!isActive")
+            a.nav-list-item--link Chatroom
           router-link.nav-list-item.ripple(tag="li" id="nav_3th" to="/ChatUserCreatePage" v-on:click.native="rippleEffect,isActive=!isActive")
             a.nav-list-item--link Chat
           router-link.nav-list-item.ripple(tag="li" id="nav_chat" to="/ChatUserCreatePage" v-on:click.native="rippleEffect,isActive=!isActive")

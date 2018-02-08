@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import firebase from 'firebase'
-import ChatUserCreatePage from '@/components/ChatUserCreatePage'
 import SiteTopPage from '@/components/SiteTopPage'
+import ChatroomListPage from '@/components/ChatroomListPage'
 import LoginMenuPage from '@/components/LoginMenuPage'
+import ChatUserCreatePage from '@/components/ChatUserCreatePage'
 
 Vue.use(Router)
 
 let router = new Router({
-  mode: 'history',
   routes: [
     {
       path: '*',
@@ -17,7 +17,12 @@ let router = new Router({
     {
       path: '/',
       name: 'SiteTopPage',
-      component: SiteTopPage,
+      component: SiteTopPage
+    },
+    {
+      path: '/chatroom_list',
+      name: 'ChatroomListPage',
+      component: ChatroomListPage,
       meta: {
         requiresAuth: true
       }

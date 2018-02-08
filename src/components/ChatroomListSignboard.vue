@@ -1,5 +1,5 @@
 <template>
-  <div class="top-signboard shadow-normal">
+  <div class="chatroom-top-signboard shadow-normal">
     <ul class="tile">
       <li class="tile-card-unit shadow-normal"></li>
       <li class="tile-card-unit shadow-normal"></li>
@@ -18,7 +18,7 @@
 <script>
 
 export default {
-  name: 'siteTopSignboard',
+  name: 'chatroomListSignboard',
   created () {
     this.cardAlignSet()
   },
@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style lang="stylus">
-.top-signboard
+.chatroom-top-signboard
   overflow-y scroll
   position absolute
   top 0
