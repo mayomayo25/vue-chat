@@ -1,5 +1,7 @@
-<template lang="pug">
-p template
+<template>
+<p>
+  template
+</p>
 </template>
 
 <script>
