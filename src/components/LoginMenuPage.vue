@@ -17,16 +17,6 @@ var usersRef = firebase.database().ref('users')
 
 export default {
   name: 'loginMenu',
-  created () {
-    this.loginCheck()
-  },
-  methods: {
-    loginCheck: function () {
-      firebase.auth().onAuthStateChanged((user) => {
-        console.log(user)
-      })
-    }
-  },
   firebase: {
     users: usersRef
   },

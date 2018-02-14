@@ -33,6 +33,7 @@ export default {
       firebase.auth().signInWithEmailAndPassword(this.User.email, this.User.password).then(
         user => {
           alert('Success!')
+          this.$root.loginFlag = true
           this.$router.push('/')
         },
         err => {

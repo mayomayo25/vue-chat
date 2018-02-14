@@ -5,21 +5,20 @@
         a.site-title--link Vuechat
       nav.nav
         ul.nav-list(v-bind:class='{active:isActive}')
-          router-link.nav-list-item.ripple(tag="li" id="nav_login" to="/login" v-on:click.native="rippleEffect,isActive=!isActive")
+          router-link.nav-list-item(tag="li" id="nav_login" to="/login" v-on:click.native="isActive=!isActive")
             a.nav-list-item--link Login
-          router-link.nav-list-item.ripple(tag="li" id="nav_1th" to="/ChatUserCreatePage" v-on:click.native="rippleEffect,isActive=!isActive")
+          router-link.nav-list-item(tag="li" id="nav_1th" to="/ChatUserCreatePage" v-on:click.native="isActive=!isActive")
             a.nav-list-item--link UserCreate
-          router-link.nav-list-item.ripple(tag="li" id="nav_2th" to="/chatroom_list" v-on:click.native="rippleEffect,isActive=!isActive")
+          router-link.nav-list-item(tag="li" id="nav_2th" to="/chatroom_list" v-on:click.native="isActive=!isActive")
             a.nav-list-item--link Chatroom
-          router-link.nav-list-item.ripple(tag="li" id="nav_3th" to="/ChatUserCreatePage" v-on:click.native="rippleEffect,isActive=!isActive")
-            a.nav-list-item--link Chat
-          router-link.nav-list-item.ripple(tag="li" id="nav_chat" to="/ChatUserCreatePage" v-on:click.native="rippleEffect,isActive=!isActive")
-            a.nav-list-item--link Chat
+          router-link.nav-list-item(tag="li" id="nav_2th" to="/" v-if='loginFlagProps' v-on:click.native="logoutFunc(),isActive=!isActive")
+            a.nav-list-item--link.logout Logout
       .menu-button.shadow-deep(v-bind:class='{active:isActive}' v-on:click='isActive=!isActive')
         i.material-icons menu
 </template>
 
 <script>
+import firebase from 'firebase'
 
 export default {
   name: 'globalHeader',
@@ -28,38 +27,18 @@ export default {
       isActive: false
     }
   },
+  props: ['login-flag-props'],
   methods: {
-    rippleEffect: function () {
-      var ripple, ripples, RippleEffect, loc, cover, coversize, pos, x, y, i, num
-      // クラス名rippleの要素を取得
-      ripples = document.querySelectorAll('.ripple')
-
-      // 位置を取得
-      RippleEffect = function (e) {
-        ripple = this // クリックされたボタンを取得
-        cover = document.createElement('span')
-        coversize = ripple.offsetWidth // 要素の幅を取得
-        loc = ripple.getBoundingClientRect() // 絶対座標の取得
-        x = e.pageX - loc.left - window.pageXOffset - (coversize / 2)
-        y = e.pageY - loc.top - window.pageYOffset - (coversize / 2)
-        pos = 'top:' + y + 'px; left:' + x + 'px; height:' + coversize + 'px; width:' + coversize + 'px;'
-
-        // spanを追加
-        ripple.appendChild(cover)
-        cover.setAttribute('style', pos)
-        cover.setAttribute('class', 'rp-effect') // クラス名追加
-
-        setTimeout(function () {
-          var list = document.getElementsByClassName('rp-effect')
-          for (var i = list.length - 1; i >= 0; i--) { // 末尾から順にすべて削除
-            list[i].parentNode.removeChild(list[i])
-          }
-        }, 2000)
-      }
-      for (i = 0, num = ripples.length; i < num; i++) {
-        ripple = ripples[i]
-        ripple.addEventListener('mousedown', RippleEffect)
-      }
+    logoutFunc: function () {
+      this.$emit('childs-event', 'agooooon')
+      firebase.auth().signOut().then(function () {
+      // Sign-out successful.
+        alert('logout success')
+        this.$router.push('/login')
+      }).catch(function () {
+      // An error happened.
+        alert('logout error')
+      })
     }
   }
 }
@@ -102,6 +81,7 @@ export default {
         width 400px
       &-list
         display flex
+        justify-content flex-end
         width 100%
         max-width 800px
         margin-left auto
@@ -125,6 +105,8 @@ export default {
               box-sizing border-box
               color #004D40
               background-color #B2DFDB
+            &.logout
+              color red
     .menu-button
       display none
       @media(max-width 960px)

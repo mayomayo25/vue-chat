@@ -24,6 +24,39 @@ firebase.initializeApp(config)
 
 export default {
   name: 'App',
+  data: function () {
+    return {
+      loginFlag: false
+    }
+  },
+  created () {
+    this.loginCheck()
+  },
+  methods: {
+    loginCheck: function (message) {
+      console.log(this.$store.state.message)
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE).then(function () {
+      }).catch(function () {
+        console.log('サーバーエラー')
+      })
+
+      firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+        // User is signed in.
+          console.log('ログイン中')
+          this.loginFlag = true
+          console.log(this.loginFlag)
+        } else {
+        // No user is signed in.
+          console.log('ログインしていません')
+          this.loginFlag = false
+          console.log(this.loginFlag)
+        }
+
+        console.log(message)
+      })
+    }
+  },
   components: {
     globalHeader,
     globalFooter
