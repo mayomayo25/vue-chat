@@ -6,9 +6,7 @@
       nav.nav
         ul.nav-list(v-bind:class='{active:isActive}')
           router-link.nav-list-item(tag="li" id="nav_login" to="/login" v-on:click.native="isActive=!isActive")
-            a.nav-list-item--link Login
-          router-link.nav-list-item(tag="li" id="nav_1th" to="/ChatUserCreatePage" v-on:click.native="isActive=!isActive")
-            a.nav-list-item--link UserCreate
+            a.nav-list-item--link Login / User Create
           router-link.nav-list-item(tag="li" id="nav_2th" to="/chatroom_list" v-on:click.native="isActive=!isActive")
             a.nav-list-item--link Chatroom
           router-link.nav-list-item(tag="li" id="nav_2th" to="/" v-if='loginFlag' v-on:click.native="logoutFunc(),isActive=!isActive")

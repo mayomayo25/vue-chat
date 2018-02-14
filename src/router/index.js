@@ -28,11 +28,6 @@ let router = new Router({
       }
     },
     {
-      path: '/ChatUserCreatePage',
-      name: 'ChatUserCreatePage',
-      component: ChatUserCreatePage
-    },
-    {
       path: '/login',
       name: 'LoginMenuPage',
       component: LoginMenuPage
