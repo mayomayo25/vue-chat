@@ -1,33 +1,44 @@
 <template>
   <div class="chatroom-top-signboard shadow-normal">
     <ul class="tile">
-      <li class="tile-card-unit shadow-normal"></li>
-      <li class="tile-card-unit shadow-normal"></li>
-      <li class="tile-card-unit shadow-normal"></li>
-      <li class="tile-card-unit shadow-normal"></li>
-      <li class="tile-card-unit shadow-normal"></li>
-      <li class="tile-card-unit shadow-normal"></li>
-      <li class="tile-card-unit shadow-normal"></li>
-      <li class="tile-card-unit shadow-normal"></li>
-      <li class="tile-card-unit shadow-normal"></li>
-      <li class="tile-card-unit shadow-normal"></li>
+      <li class="tile-card-unit shadow-normal" v-for="room in list" :key="room.name">
+        <span class="room-name">{{ room.name }}</span>
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
+import firebase from 'firebase'
+
+// users以下を全て取得
+var roomsRef = firebase.database().ref('rooms')
 
 export default {
   name: 'chatroomListSignboard',
+  data: function () {
+    return {
+      list: []
+    }
+  },
   created () {
-    this.cardAlignSet()
+    this.listenList()
   },
   methods: {
-    cardAlignSet: function () {
-      const tile = document.getElementsByClassName('tile')
-      for (var i = 0; i < tile.length; i++) {
-        tile.insertAdjacentHTML('afterend', '<li class="tile-card-unit shadow-normal is-empty"></li>')
-      }
+    listenList: function () {
+      roomsRef.on('value', snapshot => {
+        if (snapshot) {
+          const rootList = snapshot.val()
+          let list = []
+          // データオブジェクトを配列に変更する
+          Object.keys(rootList).forEach((val, key) => {
+            rootList[val].id = val
+            list.push(rootList[val])
+          })
+          // vueのdataに突っ込む
+          this.list = list
+        }
+      })
     }
   }
 }
