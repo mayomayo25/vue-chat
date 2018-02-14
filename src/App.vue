@@ -10,6 +10,7 @@
 import globalHeader from './components/GlobalHeader'
 import globalFooter from './components/GlobalFooter'
 import firebase from 'firebase'
+import { mapGetters, mapActions, mapState } from 'vuex' // eslint-disable-line
 
 var config = {
   apiKey: 'AIzaSyCTPJaLV9ixiCoQ38iLBhqCduajxBwjl6Y',
@@ -24,36 +25,28 @@ firebase.initializeApp(config)
 
 export default {
   name: 'App',
-  data: function () {
-    return {
-      loginFlag: false
-    }
-  },
   created () {
     this.loginCheck()
   },
+  computed: {
+    ...mapState({
+      loginFlag: 'loginFlag'
+    })
+  },
   methods: {
-    loginCheck: function (message) {
-      console.log(this.$store.state.message)
-      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE).then(function () {
+    loginCheck: function () {
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION).then(function () {
+        firebase.auth().onAuthStateChanged(function (user) {
+          if (user) {
+          // User is signed in.
+            console.log('ログイン中')
+          } else {
+          // No user is signed in.
+            console.log('ログインしていません')
+          }
+        })
       }).catch(function () {
         console.log('サーバーエラー')
-      })
-
-      firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-        // User is signed in.
-          console.log('ログイン中')
-          this.loginFlag = true
-          console.log(this.loginFlag)
-        } else {
-        // No user is signed in.
-          console.log('ログインしていません')
-          this.loginFlag = false
-          console.log(this.loginFlag)
-        }
-
-        console.log(message)
       })
     }
   },

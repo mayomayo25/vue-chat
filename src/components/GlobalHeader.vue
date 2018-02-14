@@ -11,7 +11,7 @@
             a.nav-list-item--link UserCreate
           router-link.nav-list-item(tag="li" id="nav_2th" to="/chatroom_list" v-on:click.native="isActive=!isActive")
             a.nav-list-item--link Chatroom
-          router-link.nav-list-item(tag="li" id="nav_2th" to="/" v-if='loginFlagProps' v-on:click.native="logoutFunc(),isActive=!isActive")
+          router-link.nav-list-item(tag="li" id="nav_2th" to="/" v-if='loginFlag' v-on:click.native="logoutFunc(),isActive=!isActive")
             a.nav-list-item--link.logout Logout
       .menu-button.shadow-deep(v-bind:class='{active:isActive}' v-on:click='isActive=!isActive')
         i.material-icons menu
@@ -19,6 +19,7 @@
 
 <script>
 import firebase from 'firebase'
+import { mapGetters, mapActions, mapState } from 'vuex' // eslint-disable-line
 
 export default {
   name: 'globalHeader',
@@ -27,17 +28,20 @@ export default {
       isActive: false
     }
   },
-  props: ['login-flag-props'],
+  computed: {
+    ...mapState({
+      loginFlag: 'loginFlag'
+    })
+  },
   methods: {
     logoutFunc: function () {
-      this.$emit('childs-event', 'agooooon')
+      this.$store.dispatch('setLoginFlag', false)
+
       firebase.auth().signOut().then(function () {
       // Sign-out successful.
-        alert('logout success')
         this.$router.push('/login')
       }).catch(function () {
       // An error happened.
-        alert('logout error')
       })
     }
   }

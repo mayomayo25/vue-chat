@@ -13,25 +13,35 @@ Vue.use(Vuex)
 const store = new Vuex.Store({ // eslint-disable-line
   state: {
     // 単純なテキストデータ
-    message: '初期メッセージ'
+    message: '初期メッセージ',
+    loginFlag: false
   },
   mutations: {
     // メッセージの書き換え
     setMessage (state, payload) {
       state.message = payload
+    },
+    setLoginFlag (state, payload) {
+      state.loginFlag = payload
+    }
+  },
+  actions: {
+    setLoginFlag (context, flag) {
+      context.commit('setLoginFlag', flag)
     }
   },
   getters: {
     // message をそのまま使用
-    message (state) { return state.message }
+    message (state) { return state.message },
+    loginFlag (state) { return state.loginFlag }
   }
 })
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
-  store,
+  router, // vue-router router add in root
+  store, // vuex store add in root
   components: { App },
   template: '<App/>'
 })
