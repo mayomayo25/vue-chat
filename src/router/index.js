@@ -4,7 +4,6 @@ import firebase from 'firebase'
 import SiteTopPage from '@/components/SiteTopPage'
 import ChatroomListPage from '@/components/ChatroomListPage'
 import LoginMenuPage from '@/components/LoginMenuPage'
-import ChatUserCreatePage from '@/components/ChatUserCreatePage'
 
 Vue.use(Router)
 
