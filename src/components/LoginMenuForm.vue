@@ -34,6 +34,7 @@ export default {
         user => {
           alert('Success!')
           this.$store.dispatch('setLoginFlag', true)
+          this.$store.dispatch('setUserEmail', this.User.email)
           this.$router.push('/')
         },
         err => {

@@ -30,12 +30,14 @@ export default {
   },
   computed: {
     ...mapState({
-      loginFlag: 'loginFlag'
+      loginFlag: 'loginFlag',
+      userEmail: 'email'
     })
   },
   methods: {
     logoutFunc: function () {
       this.$store.dispatch('setLoginFlag', false)
+      this.$store.dispatch('setUserEmail', '')
 
       firebase.auth().signOut().then(function () {
       // Sign-out successful.

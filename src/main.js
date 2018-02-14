@@ -14,7 +14,8 @@ const store = new Vuex.Store({ // eslint-disable-line
   state: {
     // 単純なテキストデータ
     message: '初期メッセージ',
-    loginFlag: false
+    loginFlag: false,
+    email: ''
   },
   mutations: {
     // メッセージの書き換え
@@ -23,17 +24,24 @@ const store = new Vuex.Store({ // eslint-disable-line
     },
     setLoginFlag (state, payload) {
       state.loginFlag = payload
+    },
+    setUserEmail (state, payload) {
+      state.email = payload
     }
   },
   actions: {
     setLoginFlag (context, flag) {
       context.commit('setLoginFlag', flag)
+    },
+    setUserEmail (context, text) {
+      context.commit('setUserEmail', text)
     }
   },
   getters: {
     // message をそのまま使用
     message (state) { return state.message },
-    loginFlag (state) { return state.loginFlag }
+    loginFlag (state) { return state.loginFlag },
+    email (state) { return state.email }
   }
 })
 

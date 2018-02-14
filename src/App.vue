@@ -30,12 +30,13 @@ export default {
   },
   computed: {
     ...mapState({
-      loginFlag: 'loginFlag'
+      loginFlag: 'loginFlag',
+      userEmail: 'email'
     })
   },
   methods: {
     loginCheck: function () {
-      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION).then(function () {
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE).then(function () {
         firebase.auth().onAuthStateChanged(function (user) {
           if (user) {
           // User is signed in.
