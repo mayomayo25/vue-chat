@@ -16,7 +16,8 @@ export default {
   data: function () {
     return {
       newRoom: {
-        name: ''
+        name: '',
+        createUser: this.$store.state.email
       }
     }
   },

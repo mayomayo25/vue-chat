@@ -70,10 +70,17 @@ export default {
       height 220px
       margin 10px
       border-radius 10px
+      transition all .2s linear
       &.is-empty
         height 0
         padding-top 0
         padding-bottom 0
         margin-top 0
         margin-bottom 0
+.v-enter, .v-leave-active
+  height 0
+  padding-top 0
+  padding-bottom 0
+  border-top-width 0
+  border-bottom-width 0
 </style>
