@@ -2,7 +2,9 @@
   <div class="chatroom-top-signboard shadow-normal">
     <ul class="tile">
       <li class="tile-card-unit shadow-normal" v-for="room in list" :key="room.name">
-        <span class="room-name">{{ room.name }}</span>
+        <div class="room-label">
+          <span class="room-name">{{ room.name }}</span>
+        </div>
       </li>
     </ul>
   </div>
@@ -66,6 +68,7 @@ export default {
     flex-flow row wrap
     justify-content center
     &-card-unit
+      position relative
       width 220px
       height 220px
       margin 10px
@@ -81,6 +84,16 @@ export default {
         padding-bottom 0
         margin-top 0
         margin-bottom 0
+      .room-label
+        position absolute
+        bottom 20px
+        width 100%
+        height 50px
+        line-height 50px
+        background-color #009688
+        .room-name
+          font-weight bold
+          color #f5f5f5
 .v-enter, .v-leave-active
   height 0
   padding-top 0
