@@ -70,6 +70,10 @@ export default {
       height 220px
       margin 10px
       border-radius 10px
+      font-weight bold
+      color #009688
+      background-color #E0F2F1
+      cursor pointer
       transition all .2s linear
       &.is-empty
         height 0
