@@ -112,7 +112,12 @@ export default {
               color #004D40
               background-color #B2DFDB
             &.logout
-              color red
+              display inline
+              padding 10px 20px
+              border-radius 10px
+              font-weight bold
+              color #f5f5f5
+              background-color #ff9162
     .menu-button
       display none
       @media(max-width 960px)
