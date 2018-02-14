@@ -8,7 +8,7 @@
       </li>
       <li class="form-list-item">
         <label class="info-name" for="">your password</label>
-        <input class="input-field" type="password" v-model="User.password" placeholder="Choose your password" required>
+        <input class="input-field" type="password" v-model="User.password" placeholder="Choose your password" pattern=".{6,}" required>
       </li>
     </ul>
     <button class="login-confirm-button" type="button" v-on:click="checkUser">Create</button>
