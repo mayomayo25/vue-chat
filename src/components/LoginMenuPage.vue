@@ -63,6 +63,6 @@ export default {
       width 400px
       border-right 1px solid rgba(#009688, 0.7)
     .login-menu-right
-      width auto
-      max-width 50%
+      width calc(100% - 400px)
+      max-width 400px
 </style>
