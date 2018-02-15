@@ -1,11 +1,11 @@
 <template>
   <div class="chatroom-top-signboard shadow-normal">
     <ul class="tile">
-      <li class="tile-card-unit shadow-normal" v-for="room in list" :key="room.name">
+      <router-link class="tile-card-unit shadow-normal" tag="li" :to="{ name: 'ChatroomUnitPage', params: { roomName: room.name } }" v-for="room in list" :key="room.name">
         <div class="room-label">
           <span class="room-name">{{ room.name }}</span>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import firebase from 'firebase'
 import SiteTopPage from '@/components/SiteTopPage'
 import ChatroomListPage from '@/components/ChatroomListPage'
+import ChatroomUnitPage from '@/components/ChatroomUnitPage'
 import LoginMenuPage from '@/components/LoginMenuPage'
 
 Vue.use(Router)
@@ -22,6 +23,14 @@ let router = new Router({
       path: '/chatroom_list',
       name: 'ChatroomListPage',
       component: ChatroomListPage,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/chatroom_unit/:roomName',
+      name: 'ChatroomUnitPage',
+      component: ChatroomUnitPage,
       meta: {
         requiresAuth: true
       }
