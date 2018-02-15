@@ -77,6 +77,7 @@ export default {
     margin-left 5%
     padding 0
     border none
+    border-radius 5px
     font-size 16px
     font-weight bold
     color #f5f5f5
