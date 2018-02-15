@@ -19,6 +19,7 @@ export default {
       newMessage: {
         roomName: this.roomName,
         sender: this.$store.state.email,
+        date: this.$moment().format('YYYY/MM/DD HH:mm'),
         text: ''
       }
     }

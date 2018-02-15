@@ -4,7 +4,10 @@
     <li class="list-view-item" v-bind:class="{byMe: message.sender == email}" v-for="message in list" :key="message.id">
       <!-- <span v-html="message.text"></span> -->
       <span>{{ message.text }}</span>
-      <label for="">by: {{ message.sender }}</label>
+      <p class="tag" for="">
+        <span class="tag-date">{{ message.date }}</span>
+        <span class="tag-sender">by: {{ message.sender }}</span>
+      </p>
     </li>
   </ul>
 </div>
@@ -79,12 +82,13 @@ export default {
       color #f5f5f5
       background-color #f99543
       white-space pre-wrap
-      label
+      .tag
         position absolute
         right 15px
         bottom -15px
         font-size 12px
         color #555
+
     &-item.byMe
       margin-right 0
       margin-left auto

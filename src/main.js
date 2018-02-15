@@ -4,10 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuex from 'vuex'
+import moment from 'vue-moment'
 
 Vue.config.productionTip = false
 
 Vue.use(Vuex)
+Vue.use(moment)
 
 // global store (vuex)
 const store = new Vuex.Store({ // eslint-disable-line
