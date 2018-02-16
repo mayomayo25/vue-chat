@@ -5,7 +5,7 @@
     <router-link tag="div" to="/chatroom_list" class="prev-button">
       <i class="material-icons">arrow_back</i>
     </router-link>
-    <div class="scroll-bottom-button">
+    <div class="scroll-bottom-button" v-on:click="scrollToEnd">
       <i class="material-icons">expand_more</i>
     </div>
   </h2>
@@ -23,6 +23,15 @@ export default {
   data: function () {
     return {
       roomName: this.$route.params.roomName
+    }
+  },
+  methods: {
+    // bug : cannot scroll to bottom
+    scrollToEnd: function () {
+      var container = document.getElementsByClassName('list-view')
+      console.log(container)
+      console.log(container[0].scrollHeight)
+      document.getElementsByClassName('message-list').scrollTop = container[0].scrollHeight
     }
   },
   components: {

@@ -35,9 +35,6 @@ export default {
   created () {
     this.listenList()
   },
-  ready () {
-    this.scrollToEnd()
-  },
   methods: {
     listenList: function () {
       messagesRef.on('value', snapshot => {
@@ -56,13 +53,6 @@ export default {
           this.list = list
         }
       })
-      this.scrollToEnd()
-    },
-    scrollToEnd: function () {
-      var container = document.getElementsByClassName('list-view')
-      console.log(container)
-      console.log(container.scrollHeight)
-      // container.scrollTop = container.scrollHeight
     }
   }
 }

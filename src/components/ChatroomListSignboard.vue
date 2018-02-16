@@ -5,6 +5,12 @@
         <div class="room-label">
           <span class="room-name">{{ room.name }}</span>
         </div>
+        <div class="forum-icon">
+          <i class="material-icons">forum</i>
+        </div>
+        <div class="creator-label">
+          <span class="creator-name">by {{ room.createUser }}</span>
+        </div>
       </router-link>
     </ul>
   </div>
@@ -77,7 +83,12 @@ export default {
       color #009688
       background-color #E0F2F1
       cursor pointer
-      transition all .2s linear
+      transition background-color .2s linear
+      @media (max-width 480px)
+        width 90%
+        height 100px
+      &:hover
+        background-color #f2e7e0
       &.is-empty
         height 0
         padding-top 0
@@ -86,14 +97,55 @@ export default {
         margin-bottom 0
       .room-label
         position absolute
-        bottom 20px
+        top 20px
         width 100%
-        height 50px
-        line-height 50px
-        background-color #009688
+        height 40px
+        line-height 40px
+        background-color #26addf
+        @media (max-width 480px)
+          top 35px
+          right 0
+          width 80%
+          height 30px
+          line-height 30px
         .room-name
           font-weight bold
           color #f5f5f5
+      .creator-label
+        position absolute
+        right 0
+        bottom 10px
+        left 0
+        width 90%
+        margin auto
+        @media (max-width 480px)
+          text-align right
+      .forum-icon
+        position absolute
+        top 30px
+        right 0
+        bottom 0
+        left 0
+        width 100px
+        height 100px
+        margin auto
+        border-radius 50%
+        background-color #26addf
+        @media (max-width 480px)
+          z-index 10
+          top 15px
+          bottom 15px
+          left -220px
+          width 70px
+          height 70px
+          margin auto
+        .material-icons
+          line-height 100px
+          font-size 50px
+          color #f5f5f5
+          @media (max-width 480px)
+            line-height 70px
+            font-size 40px
 .v-enter, .v-leave-active
   height 0
   padding-top 0
