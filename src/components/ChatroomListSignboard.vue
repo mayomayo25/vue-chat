@@ -62,7 +62,7 @@ export default {
   left 0
   width 80%
   max-width 1200px
-  height 80%
+  height calc(100% - 80px - 80px - 20px)
   max-height 700px
   margin auto
   padding 2%
