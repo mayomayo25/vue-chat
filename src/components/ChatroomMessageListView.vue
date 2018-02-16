@@ -1,14 +1,16 @@
 <template>
 <div class="message-list">
   <ul class="list-view">
-    <li class="list-view-item" v-bind:class="{byMe: message.sender == email}" v-for="message in list" :key="message.id">
-      <!-- <span v-html="message.text"></span> -->
-      <span>{{ message.text }}</span>
-      <p class="tag" for="">
-        <span class="tag-date">{{ message.date }}</span>
-        <span class="tag-sender">by: {{ message.sender }}</span>
-      </p>
-    </li>
+    <transition-group>
+      <li class="list-view-item" v-bind:class="{byMe: message.sender == email}" v-for="message in list" :key="message.id">
+        <!-- <span v-html="message.text"></span> -->
+        <span>{{ message.text }}</span>
+        <p class="tag" for="">
+          <span class="tag-date">{{ message.date }}</span>
+          <span class="tag-sender">by: {{ message.sender }}</span>
+        </p>
+      </li>
+    </transition-group>
   </ul>
 </div>
 </template>
@@ -33,6 +35,9 @@ export default {
   created () {
     this.listenList()
   },
+  ready () {
+    this.scrollToEnd()
+  },
   methods: {
     listenList: function () {
       messagesRef.on('value', snapshot => {
@@ -51,6 +56,13 @@ export default {
           this.list = list
         }
       })
+      this.scrollToEnd()
+    },
+    scrollToEnd: function () {
+      var container = document.getElementsByClassName('list-view')
+      console.log(container)
+      console.log(container.scrollHeight)
+      // container.scrollTop = container.scrollHeight
     }
   }
 }
@@ -64,7 +76,6 @@ export default {
   width 100%
   height calc(100% - 160px)
   .list-view
-    height 100%
     padding 20px
     box-sizing border-box
     &-item
@@ -94,4 +105,16 @@ export default {
       margin-left auto
       text-align left
       background-color #43a2f9
+.v-enter-active {
+  transition: all .8s ease;
+}
+
+.v-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.v-enter, .v-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
+}
 </style>
