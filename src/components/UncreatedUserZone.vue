@@ -32,25 +32,37 @@ export default {
     checkUser: function () {
       firebase.auth().createUserWithEmailAndPassword(this.User.email, this.User.password).then(
         user => {
-          alert('User Add Complete!')
+          this.$swal({
+            type: 'success',
+            title: 'Success!',
+            text: 'Successful account creation and login.'
+          })
 
           // 新規登録後 ログイン処理
           firebase.auth().signInWithEmailAndPassword(this.User.email, this.User.password).then(
             user => {
-              alert('Login Complete!')
+              // alert('Login Complete!')
               this.$store.dispatch('setLoginFlag', true)
               this.$store.dispatch('setUserEmail', this.User.email)
               this.$router.push('/')
             },
             err => {
-              alert(err.message)
+              this.$swal({
+                type: 'error',
+                title: 'error!',
+                text: err.message
+              })
               this.$store.dispatch('setLoginFlag', false)
               this.$store.dispatch('setUserEmail', '')
             }
           )
         },
         err => {
-          alert(err.message)
+          this.$swal({
+            type: 'error',
+            title: 'error!',
+            text: err.message
+          })
           this.$store.dispatch('setLoginFlag', false)
         }
       )

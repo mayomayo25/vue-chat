@@ -1,8 +1,5 @@
 <template>
-  <form id="form" v-on:submit.prevent="addRoom">
-    <input type="text" name="room_name" v-model="newRoom.name" placeholder="Please write your room name">
-    <button type="submit" v-on:click="addRoom">Create</button>
-  </form>
+  <p>改装中!</p>
 </template>
 
 <script>

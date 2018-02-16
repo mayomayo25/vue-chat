@@ -32,13 +32,21 @@ export default {
     checkUser: function () {
       firebase.auth().signInWithEmailAndPassword(this.User.email, this.User.password).then(
         user => {
-          alert('Success!')
+          this.$swal({
+            type: 'success',
+            title: 'Success!',
+            text: 'Login succeeded.'
+          })
           this.$store.dispatch('setLoginFlag', true)
           this.$store.dispatch('setUserEmail', this.User.email)
           this.$router.push('/')
         },
         err => {
-          alert(err.message)
+          this.$swal({
+            type: 'error',
+            title: 'error!',
+            text: err.message
+          })
           this.$store.dispatch('setLoginFlag', false)
         }
       )
