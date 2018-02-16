@@ -75,6 +75,9 @@ export default {
   top 80px
   width 100%
   height calc(100% - 160px)
+  @media (max-width 480px)
+    top 60px
+    height calc(100% - 120px)
   .list-view
     padding 20px
     box-sizing border-box
@@ -93,12 +96,20 @@ export default {
       color #f5f5f5
       background-color #f99543
       white-space pre-wrap
+      @media (max-width 480px)
+        width 70%
       .tag
         position absolute
-        right 15px
+        right 0
         bottom -15px
+        max-width 100%
+        padding 0 15px
+        box-sizing border-box
         font-size 12px
         color #555
+        overflow hidden
+        text-overflow ellipsis
+        white-space nowrap
 
     &-item.byMe
       margin-right 0

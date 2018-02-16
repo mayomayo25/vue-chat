@@ -34,7 +34,10 @@ export default {
   max-width 1280px
   height 100%
   margin 0 auto
+  @media (max-width 960px)
+    min-height 800px
   &-tile
+    display flex
     position absolute
     top 0
     right 0
@@ -47,14 +50,16 @@ export default {
     margin auto
     border-radius 20px
     background-color #f5f5f5
-    &::after
-      content ''
-      display block
-      clear both
-
+    @media (max-width 960px)
+      flex-direction column
+      top 20px
+      bottom 80px
+      width 400px
+      min-height 700px
+    @media (max-width 480px)
+      width 90%
     // カスタムタグ部分
     .login-menu-left,.login-menu-right
-      float left
       height 90%
       margin-top 2.5%
       padding 20px
@@ -62,7 +67,16 @@ export default {
     .login-menu-left
       width 400px
       border-right 1px solid rgba(#009688, 0.7)
+      @media (max-width 960px)
+        border-right none
+        border-bottom 1px solid rgba(#009688, 0.7)
+      @media (max-width 480px)
+        width 100%
     .login-menu-right
       width calc(100% - 400px)
       max-width 400px
+      @media (max-width 960px)
+        width 400px
+      @media (max-width 480px)
+        width 100%
 </style>

@@ -65,6 +65,9 @@ export default {
   box-sizing border-box
   border-radius 0 0 20px 20px
   background-color #009688
+  @media (max-width 480px)
+    height 60px
+    padding 10px 20px
   .send-message-textarea
     width 70%
     padding-left 15px

@@ -50,6 +50,8 @@ export default {
 
 <style lang="stylus" scoped>
 .global_header
+  position fixed
+  z-index 999
   width 100%
   height 80px
   margin-top -80px
@@ -80,9 +82,12 @@ export default {
       height 100%
       @media(max-width 960px)
         position absolute
+        z-index 999
         top 80px
         right 0
         width 400px
+      @media (max-width 480px)
+        width 100%
       &-list
         display flex
         justify-content flex-end
@@ -99,6 +104,7 @@ export default {
           width 20%
           @media(max-width 960px)
             width 100%
+            background-color #B2DFDB
           &--link
             display block
             color #f5f5f5
@@ -121,6 +127,7 @@ export default {
       @media(max-width 960px)
         display inline-block
         position absolute
+        z-index 999
         top 10px
         right 10px
         width 60px
