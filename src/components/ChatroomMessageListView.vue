@@ -11,6 +11,8 @@
         </p>
       </li>
     </transition-group>
+    <li class="no-message-comment" v-show="this.list.length == 0">It has not been posted yet.</li>
+    <li class="demand-new-message" v-show="this.list.length == 0">Please post your new message!</li>
   </ul>
 </div>
 </template>
@@ -71,6 +73,34 @@ export default {
   .list-view
     padding 20px
     box-sizing border-box
+    .no-message-comment
+      width 90%
+      padding 15px
+      box-sizing border-box
+      margin 0 auto
+      color #555
+      background-color #e5e5e5
+    .demand-new-message
+      position absolute
+      right 0
+      bottom 40px
+      left 0
+      width 90%
+      padding 15px
+      margin 0 auto
+      box-sizing border-box
+      border-radius 20px
+      font-weight bold
+      color #f5f5f5
+      background-color #f77857
+      &::before
+        content ""
+        position absolute
+        top 100%
+        left 50%
+        margin-left -20px
+        border 20px solid transparent
+        border-top 20px solid #f77857
     &-item
       position relative
       width 60%
