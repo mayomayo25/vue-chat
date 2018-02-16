@@ -11,8 +11,8 @@
         </p>
       </li>
     </transition-group>
-    <li class="no-message-comment" v-show="this.list.length == 0">It has not been posted yet.</li>
-    <li class="demand-new-message" v-show="this.list.length == 0">Please post your new message!</li>
+    <li class="no-message-comment" v-show="this.list.length == 0" v-cloak>It has not been posted yet.</li>
+    <li class="demand-new-message" v-show="this.list.length == 0" v-cloak>Please post your new message!</li>
   </ul>
 </div>
 </template>

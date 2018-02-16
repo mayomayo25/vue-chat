@@ -71,6 +71,9 @@ body
   text-align center
   color #2c3e50
 
+[v-cloak]
+  display none
+
 .shadow-normal
   box-shadow 0 2px 5px rgba(0,0,0,0.3)
 .shadow-deep
