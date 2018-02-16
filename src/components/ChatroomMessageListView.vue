@@ -88,6 +88,8 @@ export default {
       white-space pre-wrap
       @media (max-width 480px)
         width 70%
+      span
+        word-break break-word
       .tag
         position absolute
         right 0
