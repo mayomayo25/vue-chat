@@ -5,11 +5,13 @@ import App from './App'
 import router from './router'
 import Vuex from 'vuex'
 import moment from 'vue-moment'
+import VueSweetalert2 from 'vue-sweetalert2'
 
 Vue.config.productionTip = false
 
 Vue.use(Vuex)
 Vue.use(moment)
+Vue.use(VueSweetalert2)
 
 // global store (vuex)
 const store = new Vuex.Store({ // eslint-disable-line

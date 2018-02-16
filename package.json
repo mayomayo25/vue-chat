@@ -71,6 +71,7 @@
     "vue-loader": "^13.3.0",
     "vue-moment": "^3.2.0",
     "vue-style-loader": "^3.0.1",
+    "vue-sweetalert2": "^1.2.4",
     "vue-template-compiler": "^2.5.2",
     "vuefire": "^1.4.5",
     "vuex": "^3.0.1",
